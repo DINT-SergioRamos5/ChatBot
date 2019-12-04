@@ -67,6 +67,6 @@
             <TextBox ></TextBox>
         </DockPanel>
 
-        <ItemsControl></ItemsControl>
+        <ItemsControl></ItemsControl> 
     </DockPanel>
 </Window>
