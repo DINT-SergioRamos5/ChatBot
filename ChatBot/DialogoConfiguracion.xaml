@@ -20,7 +20,9 @@
 
         <TextBlock Margin="10" Text="Color de fondo" Grid.Row="0" Grid.Column="0"></TextBlock>
 
-        <ComboBox x:Name="ColoresComboBox" ItemsSource="{Binding}" Grid.Row="0" Grid.Column="1"></ComboBox>
+        <ComboBox x:Name="ColoresComboBox" ItemsSource="{Binding}" Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="{ Binding Path=Nombre}"></TextBlock>
+        </ComboBox>
         
         <TextBlock Margin="10" Text="Color del usuario" Grid.Row="1" Grid.Column="0"></TextBlock>
         

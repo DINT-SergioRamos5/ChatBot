@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,19 @@ namespace ChatBot
         public DialogoConfiguracion()
         {
             InitializeComponent();
-            List<Colores> colores = new List<Colores>();
 
-            
+            ObservableCollection<Colores> listaColor = new ObservableCollection<Colores>();
 
+            var co = typeof(Colors).GetProperties();
 
+            foreach (var a in co)
+            {
+                Colores colores = new Colores();
+                colores.Nombre = a.Name;
+                listaColor.Add(colores); 
+            }
+
+            ColoresComboBox.DataContext = listaColor;
         }
     }
 }
