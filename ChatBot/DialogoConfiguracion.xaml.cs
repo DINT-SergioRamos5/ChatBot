@@ -20,22 +20,24 @@ namespace ChatBot
     /// </summary>
     public partial class DialogoConfiguracion : Window
     {
+        public string ColorFondo { get; set; }
+        public string ColorUsuario { get; set; }
+        public string ColorBot { get; set; }
         public DialogoConfiguracion()
         {
             InitializeComponent();
+            FondoComboBox.ItemsSource = typeof(Colors).GetProperties();
+            UsuarioComboBox.ItemsSource = typeof(Colors).GetProperties();
+            RobotComboBox.ItemsSource = typeof(Colors).GetProperties();
+        }
+       
 
-            ObservableCollection<Colores> listaColor = new ObservableCollection<Colores>();
-
-            var co = typeof(Colors).GetProperties();
-
-            foreach (var a in co)
-            {
-                Colores colores = new Colores();
-                colores.Nombre = a.Name;
-                listaColor.Add(colores); 
-            }
-
-            ColoresComboBox.DataContext = listaColor;
+        private void Aceptar_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            ColorFondo = FondoComboBox.SelectedItem.ToString();
+            ColorUsuario = UsuarioComboBox.SelectedItem.ToString();
+            ColorBot = RobotComboBox.SelectedItem.ToString();
         }
     }
 }

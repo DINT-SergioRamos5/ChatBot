@@ -91,5 +91,6 @@
         </DockPanel>
 
         <ItemsControl x:Name="ChatItemsControl" Background="Aqua"></ItemsControl> 
+        
     </DockPanel>    
 </Window>
