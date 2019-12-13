@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatBot"
         mc:Ignorable="d"
+        xmlns:properties ="clr-namespace:ChatBot.Properties"
         Title="MainWindow" Height="450" Width="350">
 
     <Window.CommandBindings>
@@ -64,7 +65,7 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button ToolTip="Nueva Conversacion" Command="ApplicationCommands.New">
-                    <Image Width="25" Height="25" Source="Iconos/chat.ico"></Image>
+                    <Image Style="{StaticResource ImagenIcono}" Source="Iconos/chat.ico"></Image>
                 </Button>
                 <Button ToolTip="Guardar Conversacion" Command="local:CustomCommands.Save">
                     <Image Width="25" Height="25" Source="Iconos/save.ico"></Image> 

@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:ChatBot"
         mc:Ignorable="d"
         Title="DialogoConfiguracion" Height="450" Width="500" ResizeMode="NoResize" ShowInTaskbar="False" SizeToContent="Height" Icon="Iconos/confg.ico">
-    <Grid>        
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -14,51 +18,46 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DockPanel Margin="5" LastChildFill="True" Grid.Row="0">
-            <TextBlock Margin="10" Text="Color de fondo" Grid.Row="0" Grid.Column="0"></TextBlock>
-            <ComboBox x:Name="FondoComboBox" Grid.Row="0" Grid.Column="1">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle Fill="{Binding Name}" Width="40" Height="40" Margin="0,2,5,2" />
-                            <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-        </DockPanel>
+        
+        <TextBlock Margin="10" Text="Color de fondo" Grid.Row="0" Grid.Column="0"></TextBlock>
+        <ComboBox Margin="10" x:Name="FondoComboBox" Grid.Row="0" Grid.Column="1">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding Name}" Margin="0,0,5,0" Width="40" Height="30"  />
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>       
+        
+        <TextBlock Margin="10" Text="Color del usuario" Grid.Row="1" Grid.Column="0"></TextBlock>
+        <ComboBox Margin="10" x:Name="UsuarioComboBox" Grid.Row="1" Grid.Column="1">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding Name}" Margin="0,0,5,0" Width="40" Height="30" />
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <TextBlock Margin="10" Text="Color del robot" Grid.Row="2" Grid.Column="0"></TextBlock>
+        <ComboBox Margin="10" x:Name="RobotComboBox" Grid.Row="2" Grid.Column="1">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding Name}" Margin="0,0,5,0" Width="40" Height="30"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-        <DockPanel Margin="5" LastChildFill="True" Grid.Row="1">
-            <TextBlock Margin="10" Text="Color del usuario" Grid.Row="1" Grid.Column="0"></TextBlock>
-            <ComboBox x:Name="UsuarioComboBox" Grid.Row="1" Grid.Column="1">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle Fill="{Binding Name}" Width="40" Height="40" Margin="0,2,5,2" />
-                            <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-        </DockPanel>
-
-        <DockPanel Margin="5" LastChildFill="True" Grid.Row="2">
-            <TextBlock Margin="10" Text="Color del robot" Grid.Row="2" Grid.Column="0"></TextBlock>
-            <ComboBox x:Name="RobotComboBox" Grid.Row="2" Grid.Column="1">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle Fill="{Binding Name}" Width="40" Height="40" Margin="0,2,5,2" />
-                            <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-        </DockPanel>        
-
-        <StackPanel Grid.Row="3"  HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button Margin="5" Content="ACEPTAR" ></Button>
-            <Button Margin="5" Content="CANCELAR" IsCancel="True"></Button>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Margin="5" Content="Aceptar" IsDefault="True" Click="Aceptar_Click" ></Button>
+            <Button Margin="5" Content="Cancelar" IsCancel="True"></Button>
         </StackPanel>
     </Grid>
 </Window>

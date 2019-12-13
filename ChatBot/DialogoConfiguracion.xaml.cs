@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace ChatBot
 {
-    /// <summary>
-    /// Lógica de interacción para DialogoConfiguracion.xaml
-    /// </summary>
+ 
     public partial class DialogoConfiguracion : Window
     {
         public string ColorFondo { get; set; }
@@ -29,6 +27,7 @@ namespace ChatBot
             FondoComboBox.ItemsSource = typeof(Colors).GetProperties();
             UsuarioComboBox.ItemsSource = typeof(Colors).GetProperties();
             RobotComboBox.ItemsSource = typeof(Colors).GetProperties();
+            FondoComboBox.SelectedValuePath = Properties.Settings.Default.ColorFondo;
         }
        
 
