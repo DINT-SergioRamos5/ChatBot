@@ -25,7 +25,7 @@ namespace ChatBot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
         public string ColorFondo {
             get {
                 return ((string)(this["ColorFondo"]));
@@ -37,7 +37,7 @@ namespace ChatBot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
         public string ColorUsuario {
             get {
                 return ((string)(this["ColorUsuario"]));
@@ -49,13 +49,40 @@ namespace ChatBot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
         public string ColorRobot {
             get {
                 return ((string)(this["ColorRobot"]));
             }
             set {
                 this["ColorRobot"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://botsergio.azurewebsites.net")]
+        public string EndPoint {
+            get {
+                return ((string)(this["EndPoint"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("164b4f7b-d067-439f-9ef9-20d58c3d5ec8")]
+        public string Key {
+            get {
+                return ((string)(this["Key"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("69e93d1d-6ccd-493d-8314-19e007646cf2")]
+        public string Id {
+            get {
+                return ((string)(this["Id"]));
             }
         }
     }

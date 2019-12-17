@@ -3,13 +3,22 @@
   <Profiles />
   <Settings>
     <Setting Name="ColorFondo" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="ColorUsuario" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="ColorRobot" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="EndPoint" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://botsergio.azurewebsites.net</Value>
+    </Setting>
+    <Setting Name="Key" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">164b4f7b-d067-439f-9ef9-20d58c3d5ec8</Value>
+    </Setting>
+    <Setting Name="Id" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">69e93d1d-6ccd-493d-8314-19e007646cf2</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -29,5 +29,19 @@ namespace ChatBot
                 typeof(CustomCommands),
                 new InputGestureCollection() { new KeyGesture(Key.C, ModifierKeys.Control) }
         );
+
+        public static readonly RoutedUICommand Submit = new RoutedUICommand(
+                "Submit",
+                "Submit",
+                typeof(CustomCommands),
+                new InputGestureCollection() { new KeyGesture(Key.Enter ) }
+        );
+
+        public static readonly RoutedUICommand Conex = new RoutedUICommand(
+                "Conex",
+                "Conex",
+                typeof(CustomCommands),
+                new InputGestureCollection() { new KeyGesture(Key.O, ModifierKeys.Control) }
+        );
     }
 }

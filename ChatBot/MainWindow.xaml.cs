@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace ChatBot
         {
             ChatItemsControl = new ItemsControl();
             InitializeComponent();
+
+            ObservableCollection<>
         }
 
         private void ExitCommand_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -74,6 +77,33 @@ namespace ChatBot
             configuracion.Title = "Configuracion";
 
             configuracion.ShowDialog();
+        }
+
+        private void SubmitCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            
+        }
+
+        private void SubmitCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
+
+        private async void ConexCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                Bot chat = new Bot();
+
+                await chat.RespuestaBotAsync("Buenas");
+                MessageBox.Show("Conexión realizada", "AVISO", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No hay conexion", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw;
+            }            
+
         }
     }
 }

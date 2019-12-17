@@ -26,6 +26,15 @@
         <CommandBinding
             Command="local:CustomCommands.Config"
             Executed="ConfigCommand_Executed"/>
+
+        <CommandBinding
+            Command="local:CustomCommands.Submit"
+            Executed="SubmitCommand_Executed"
+            CanExecute="SubmitCommand_CanExecute"/>
+
+        <CommandBinding
+            Command="local:CustomCommands.Conex"
+            Executed="ConexCommand_Executed"/>
     </Window.CommandBindings>
     
     <DockPanel LastChildFill="True">
@@ -54,7 +63,7 @@
                         <Image Source="Iconos/confg.ico"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="C_omprobar conexion" InputGestureText="Ctrl+O">
+                <MenuItem Header="C_omprobar conexion" InputGestureText="Ctrl+O" Command="local:CustomCommands.Conex">
                     <MenuItem.Icon>
                         <Image Source="Iconos/check.ico"></Image>
                     </MenuItem.Icon>
@@ -74,7 +83,7 @@
                 <Button ToolTip="Configuración" Command="local:CustomCommands.Config">
                     <Image Width="25" Height="25" Source="Iconos/confg.ico"></Image>
                 </Button>
-                <Button ToolTip="Comprobar Conexión">
+                <Button ToolTip="Comprobar Conexión" Command="local:CustomCommands.Conex">
                     <Image Width="25" Height="25" Source="Iconos/check.ico"></Image>
                 </Button>
                 <Separator/>
@@ -91,7 +100,7 @@
             <TextBox></TextBox>
         </DockPanel>
 
-        <ItemsControl x:Name="ChatItemsControl" Background="Aqua"></ItemsControl> 
+        <ItemsControl x:Name="ChatItemsControl" Background="{Binding Source={x:Static properties:Settings.Default}, Path=ColorFondo}"></ItemsControl> 
         
     </DockPanel>    
 </Window>
