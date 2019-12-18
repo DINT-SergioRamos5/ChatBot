@@ -16,24 +16,24 @@ namespace ChatBot
             set
             {
                 _usuario = value;
-                this.NotifyPropertyChanged(Usuario);
+                this.NotifyPropertyChanged("Usuario");
             }
         }
-        private string _mensaje;
-        public string Mensaje
+        private string _mensajes;
+        public string Mensajes
         {
-            get { return _mensaje; }
+            get { return _mensajes; }
             set
             {
-                _mensaje = value;
-                this.NotifyPropertyChanged(Mensaje);
+                _mensajes = value;
+                this.NotifyPropertyChanged("Mensajes");
             }
         }
 
         public Mensaje(string usuario, string mensaje)
         {
-            this.usuario = usuario;
-            this.mensaje = mensaje;
+            this._usuario = usuario;
+            this._mensajes = mensaje;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

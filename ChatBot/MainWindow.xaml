@@ -93,14 +93,26 @@
             </ToolBar>
         </ToolBarTray>
 
-        <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">            
-            <Button DockPanel.Dock="Right" HorizontalAlignment="Right">
+        <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
+            <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Command="local:CustomCommands.Submit">
                 <Image Width="25" Height="25" Source="Iconos/enviar.ico"></Image>
             </Button>
-            <TextBox></TextBox>
+            <TextBox x:Name="EnviarTextBox" ></TextBox>
         </DockPanel>
 
-        <ItemsControl x:Name="ChatItemsControl" Background="{Binding Source={x:Static properties:Settings.Default}, Path=ColorFondo}"></ItemsControl> 
+        <ScrollViewer x:Name="ScrollViewer"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="ChatItemsControl" Background="{Binding Source={x:Static properties:Settings.Default}, Path=ColorFondo}" ItemsSource="{Binding}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Usuario}"></TextBlock>
+                            <TextBlock Text="{Binding Path=Mensajes}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        
         
     </DockPanel>    
 </Window>
