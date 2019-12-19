@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ChatBot"
         mc:Ignorable="d"
         xmlns:properties ="clr-namespace:ChatBot.Properties"
-        Title="MainWindow" Height="450" Width="350">
+        Title="ChatBot" Height="600" Width="370" Icon="Iconos/app.ico">
 
     <Window.CommandBindings>
         <CommandBinding
@@ -37,12 +37,26 @@
             Executed="ConexCommand_Executed"/>
     </Window.CommandBindings>
     
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type local:Mensaje}">
+            <Border x:Name="ChatBorder" Tag="{Binding Path=Usuario}" Style="{StaticResource BorderStyle}">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource ImagenChat}" ></Image>
+                        <TextBlock FontWeight="Bold" FontSize="15" Text="{Binding Path=Usuario}"></TextBlock>
+                    </StackPanel>
+                    <TextBlock FontSize="15" TextWrapping="Wrap" Text="{Binding Path=Mensajes}"></TextBlock>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Archivo">
                 <MenuItem Header="_Nueva Conversación" InputGestureText="Ctrl+N" Command="ApplicationCommands.New">
                     <MenuItem.Icon>
-                        <Image Source="Iconos/chat.ico"></Image>
+                        <Image  Source="Iconos/chat.ico"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Guardad Conversacion..." InputGestureText="Ctrl+G" Command="local:CustomCommands.Save">
@@ -74,45 +88,36 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button ToolTip="Nueva Conversacion" Command="ApplicationCommands.New">
-                    <Image Style="{StaticResource ImagenIcono}" Source="Iconos/chat.ico"></Image>
+                    <Image Style="{StaticResource Icono}" Source="Iconos/chat.ico"></Image>
                 </Button>
                 <Button ToolTip="Guardar Conversacion" Command="local:CustomCommands.Save">
-                    <Image Width="25" Height="25" Source="Iconos/save.ico"></Image> 
+                    <Image Style="{StaticResource Icono}" Source="Iconos/save.ico"></Image> 
                 </Button>
                 <Separator/>
                 <Button ToolTip="Configuración" Command="local:CustomCommands.Config">
-                    <Image Width="25" Height="25" Source="Iconos/confg.ico"></Image>
+                    <Image Style="{StaticResource Icono}" Source="Iconos/confg.ico"></Image>
                 </Button>
                 <Button ToolTip="Comprobar Conexión" Command="local:CustomCommands.Conex">
-                    <Image Width="25" Height="25" Source="Iconos/check.ico"></Image>
+                    <Image Style="{StaticResource Icono}"  Source="Iconos/check.ico"></Image>
                 </Button>
                 <Separator/>
                 <Button ToolTip="Salir"  Command="local:CustomCommands.Exit">
-                    <Image Width="25" Height="25" Source="Iconos/exit.ico"></Image>
+                    <Image Style="{StaticResource Icono}" Source="Iconos/exit.ico"></Image>
                 </Button>
             </ToolBar>
         </ToolBarTray>
 
         <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
             <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Command="local:CustomCommands.Submit">
-                <Image Width="25" Height="25" Source="Iconos/enviar.ico"></Image>
+                <Image Style="{StaticResource Icono}" Source="Iconos/enviar.ico"></Image>
             </Button>
             <TextBox x:Name="EnviarTextBox" ></TextBox>
         </DockPanel>
 
-        <ScrollViewer x:Name="ScrollViewer"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="ChatItemsControl" Background="{Binding Source={x:Static properties:Settings.Default}, Path=ColorFondo}" ItemsSource="{Binding}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Path=Usuario}"></TextBlock>
-                            <TextBlock Text="{Binding Path=Mensajes}"></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
+        <ScrollViewer x:Name="ScrollViewer"  VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="ChatItemsControl" Background="{Binding Source={x:Static properties:Settings.Default}, Path=ColorFondo}" ItemsSource="{Binding}">                
             </ItemsControl>
         </ScrollViewer>
-        
-        
+                
     </DockPanel>    
 </Window>

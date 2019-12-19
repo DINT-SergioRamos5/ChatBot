@@ -6,9 +6,28 @@
         xmlns:local="clr-namespace:ChatBot"
         mc:Ignorable="d"
         Title="DialogoConfiguracion" Height="450" Width="500" ResizeMode="NoResize" ShowInTaskbar="False" SizeToContent="Height" Icon="Iconos/confg.ico">
+
+    <Window.Resources>
+        <DataTemplate x:Key="TemplateComboBox">
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Fill="{Binding Name}" Margin="0,0,5,0" Width="40" Height="30"  />
+                <TextBlock Text="{Binding Name}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="ItemTemplate" Value="{StaticResource TemplateComboBox}"/>
+            <Setter Property="Margin" Value="10"/>            
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -19,45 +38,18 @@
         </Grid.RowDefinitions>
 
         
-        <TextBlock Margin="10" Text="Color de fondo" Grid.Row="0" Grid.Column="0"></TextBlock>
-        <ComboBox Margin="10" x:Name="FondoComboBox" Grid.Row="0" Grid.Column="1">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Rectangle Fill="{Binding Name}" Margin="0,0,5,0" Width="40" Height="30"  />
-                        <TextBlock Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>       
-        
-        <TextBlock Margin="10" Text="Color del usuario" Grid.Row="1" Grid.Column="0"></TextBlock>
-        <ComboBox Margin="10" x:Name="UsuarioComboBox" Grid.Row="1" Grid.Column="1">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Rectangle Fill="{Binding Name}" Margin="0,0,5,0" Width="40" Height="30" />
-                        <TextBlock  Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        
-        <TextBlock Margin="10" Text="Color del robot" Grid.Row="2" Grid.Column="0"></TextBlock>
-        <ComboBox Margin="10" x:Name="RobotComboBox" Grid.Row="2" Grid.Column="1">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Rectangle Fill="{Binding Name}" Margin="0,0,5,0" Width="40" Height="30"/>
-                        <TextBlock Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <Label Content="Color de _fondo" Grid.Row="0" Grid.Column="0" TabIndex="0"></Label>
+        <ComboBox x:Name="FondoComboBox" Grid.Row="0" Grid.Column="1"></ComboBox>
+
+        <Label Content="Color del _usuario" Grid.Row="1" Grid.Column="0" TabIndex="1"></Label>
+        <ComboBox x:Name="UsuarioComboBox" Grid.Row="1" Grid.Column="1"></ComboBox>
+
+        <Label Content="Color del _robot" Grid.Row="2" Grid.Column="0" TabIndex="2"></Label>
+        <ComboBox x:Name="RobotComboBox" Grid.Row="2" Grid.Column="1"></ComboBox>
 
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button Margin="5" Content="Aceptar" IsDefault="True" Click="Aceptar_Click" ></Button>
-            <Button Margin="5" Content="Cancelar" IsCancel="True"></Button>
+            <Button Margin="5" Content="Aceptar" IsDefault="True" Click="Aceptar_Click" TabIndex="3"></Button>
+            <Button Margin="5" Content="Cancelar" IsCancel="True" TabIndex="4"></Button>
         </StackPanel>
     </Grid>
 </Window>
